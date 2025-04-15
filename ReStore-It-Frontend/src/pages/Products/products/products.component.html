@@ -1,0 +1,13 @@
+<p>products works!</p>
+
+<table>
+  <thead>Products</thead>
+  <tbody>
+  <tr *ngFor="let product of products">
+    <td>{{product.name}}</td>
+    <td>{{product.description}}</td>
+    <td>{{product.numberOfProducts}}</td>
+    <td><button>Edit</button></td>
+  </tr>
+  </tbody>
+</table>

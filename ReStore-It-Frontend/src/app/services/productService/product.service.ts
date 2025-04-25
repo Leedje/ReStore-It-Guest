@@ -10,11 +10,10 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   GetAllProducts(): Observable<any>{
-    return this.http.get("/products");
+    return this.http.get(`/products`);
   }
 
   CreateProduct(product: ProductDTO): Observable<any>{
-    //return this.http.post();
     return this.http.post(`/products/create`, product);
   }
 
@@ -22,7 +21,7 @@ export class ProductService {
     return this.http.delete(`/products/delete/${id}`)
   }
 
-  async GetProductDetails(id: string){
+  GetProductByID(id: string){
     return this.http.get(`/products/${id}`)
   }
 

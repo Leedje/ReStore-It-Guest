@@ -1,9 +1,11 @@
 import { Routes } from '@angular/router';
-import {ProductsComponent} from '../pages/Products/products/products.component';
-import {ProductDetailsComponent} from '../pages/Products/product-details/product-details.component';
+import { ProductsComponent } from './pages/Products/products/products.component';
+import { ProductDetailsComponent } from './pages/Products/product-details/product-details.component';
+import { CreateProductComponent } from './pages/Products/create-product/create-product.component';
 
 export const routes: Routes = [
-  {path: '', redirectTo: '/products', pathMatch: "full"},
-  {path:"/products", component: ProductsComponent},
-  {path:"/product/:id", component:ProductDetailsComponent}
+  { path: '', component: ProductsComponent}, //change to home component when I create one for the browse
+  { path: "products", component: ProductsComponent },
+  { path: "products/:id", component: ProductDetailsComponent },
+  { path: "products/create", component: CreateProductComponent},
 ];

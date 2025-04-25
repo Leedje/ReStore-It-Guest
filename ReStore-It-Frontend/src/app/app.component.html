@@ -1,5 +1,9 @@
-This is home!
-This will be the product browse page :)
-
-Testing components
-<app-header></app-header>
+<div class="app-wrapper">
+  <app-sidebar></app-sidebar>
+  <div class="app-main">
+    <div class="app-content">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>

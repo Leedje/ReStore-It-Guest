@@ -1,0 +1,29 @@
+.app-main {
+  margin-left: 0;
+  /* Remove offset caused by sidebar */
+  padding-left: 240px;
+  /* Push content to the right of the sidebar */
+  position: relative;
+  /* For proper stacking */
+  z-index: 900;
+  /* Layer below sidebar but above background */
+  background: rgba(255, 255, 255, 0.9);
+  /* Semi-transparent content background */
+}
+
+.app-content {
+  flex: 1;
+  padding: 20px;
+  /* Adjust spacing as needed */
+}
+
+app-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  /* Adjust to your sidebar width */
+  height: 100vh;
+  z-index: 1000;
+  /* Ensure it's layered correctly */
+}

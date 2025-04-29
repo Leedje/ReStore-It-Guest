@@ -19,6 +19,8 @@ export class CreateProductComponent {
     this.productService.CreateProduct(product).subscribe(response => {
     product = response;
     })
+
+    //if product successfully created, reroute and display success dialogue, if not stay on the same page and give an error dialogue
   }
 
 }

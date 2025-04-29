@@ -6,6 +6,6 @@ import { CreateProductComponent } from './pages/Products/create-product/create-p
 export const routes: Routes = [
   { path: '', component: ProductsComponent}, //change to home component when I create one for the browse
   { path: "products", component: ProductsComponent },
-  { path: "products/:id", component: ProductDetailsComponent },
-  { path: "products/create", component: CreateProductComponent},
+  { path: "products/create", component: CreateProductComponent, pathMatch: 'full' },
+  { path: "products/:id", component: ProductDetailsComponent, pathMatch: 'full' },
 ];

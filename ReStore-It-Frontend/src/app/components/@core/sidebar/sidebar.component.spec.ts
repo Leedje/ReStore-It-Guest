@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterOutlet } from '@angular/router';
 
 import { SidebarComponent } from './sidebar.component';
 

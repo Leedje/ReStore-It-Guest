@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/productService/product.service';
 import { ProductDTO } from '../../../dtos/productDTO';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,6 +13,8 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductsComponent implements OnInit {
 
+  private readonly router = inject(Router);
+
   public products: any = [];
   constructor(private productService: ProductService) { }
 
@@ -21,7 +24,14 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  //See which lifehook I need to use for when I click on a button, the delete executes
+  navigateToCreateProducts(){
+    this.router.navigate(['/products/create']);
+  }
+
+  navigateToProductDetails(productId: String){
+    this.router.navigate(['/products', {id: productId}]);
+  }
+
   DeleteProduct(id: string){
     this.productService.DeleteProduct(id);
   }

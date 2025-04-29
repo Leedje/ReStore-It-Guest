@@ -1,2 +1,60 @@
-<p>create-product works!</p>
-
+<!--begin::Form Validation-->
+<div class="card card-info card-outline mb-4">
+  <!--begin::Header-->
+  <div class="card-header">
+    <div class="card-title">Create Product</div>
+  </div>
+  <!--end::Header-->
+  <!--begin::Form-->
+  <form class="needs-validation" novalidate>
+    <!--begin::Body-->
+    <div class="card-body">
+      <!--begin::Row-->
+      <div class="row g-3">
+        <!--begin::Col-->
+        <div class="col-md-6">
+          <label for="validationCustom01" class="form-label">Name</label>
+          <input type="text" class="form-control" id="validationCustom01" required />
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-6">
+          <label for="validationCustom02" class="form-label">Description</label>
+          <input type="text" class="form-control" id="validationCustom02" />
+        </div>
+        <!--end::Col-->
+      <!--begin::Col-->
+      <div class="col-md-6">
+        <label for="validationCustom04" class="form-label">Categories</label>
+        <select class="form-select" id="validationCustom04" required>
+          <option selected disabled value="">Choose...</option>
+          <option>...</option>
+        </select>
+        <div class="invalid-feedback">Please select a category.</div>
+      </div>
+      <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-6">
+          <label for="validationCustom03" class="form-label">Price</label>
+          <input type="number" min="1.00" class="form-control" id="validationCustom03" required />
+          <div class="invalid-feedback">Please enter a price.</div>
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-6">
+          <label for="validationCustom05" class="form-label">Number of products</label>
+          <input type="number" min="1" class="form-control" id="validationCustom05" required />
+          <div class="invalid-feedback">Enter the number of available products.</div>
+        </div>
+        <!--end::Col-->
+      </div>
+      <!--end::Row-->
+    </div>
+    <!--end::Body-->
+    <!--begin::Footer-->
+    <div class="card-footer">
+      <button class="btn btn-info" type="submit">Create</button>
+    </div>
+    <!--end::Footer-->
+  </form>
+  <!--end::Form-->

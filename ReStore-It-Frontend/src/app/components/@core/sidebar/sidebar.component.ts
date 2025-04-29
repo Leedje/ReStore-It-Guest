@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
+
 export class SidebarComponent implements OnInit {
+  private readonly router = inject(Router);
   private SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
   private Default = {
     scrollbarTheme: 'os-theme-light',
@@ -19,6 +23,13 @@ export class SidebarComponent implements OnInit {
     this.initializeScrollbars();
     this.initializeTreeview();
   }
+
+  //Navigation (Sidebar Routing)
+  navigateToProducts(){
+    this.router.navigate(['/products']);
+  }
+
+  //End Navigation
 
   private initializeScrollbars(): void {
     const sidebarWrapper = document.querySelector(this.SELECTOR_SIDEBAR_WRAPPER);

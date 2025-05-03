@@ -17,12 +17,16 @@ export class ProductService {
     return this.http.post(`/products/create`, product);
   }
 
-  DeleteProduct(id: string){
-    return this.http.delete(`/products/delete/${id}`)
+  DeleteProduct(id: String): Observable<any>{
+    return this.http.delete(`/products/delete/${id}`);
   }
 
-  GetProductByID(id: string){
-    return this.http.get(`/products/${id}`)
+  GetProductByID(id: String){
+    return this.http.get(`/products/${id}`);
+  }
+
+  EditProduct(product: ProductDTO){
+    return this.http.post(`/products/edit`, product);
   }
 
 }

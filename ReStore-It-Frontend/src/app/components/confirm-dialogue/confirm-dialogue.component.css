@@ -1,0 +1,43 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* Dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.modal-content {
+  background-color: #343a40;
+  /* Matches AdminLTE's sidebar dark grey */
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.modal-title,
+.modal-body p {
+  color: white;
+}
+
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  opacity: 0.8;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.modal-footer .btn {
+  margin: 0px;
+}

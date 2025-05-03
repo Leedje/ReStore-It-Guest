@@ -1,8 +1,11 @@
+import { CategoryDTO } from "./categoryDTO";
+
 export interface ProductDTO{
-  id: string;
-  name:string;
-  description: string;
-  price: number;
-  numberOfProducts: number;
-  category: string[];
+  id: String,
+  name: String,
+  description?: String,
+  size: String,
+  price: number,
+  numberOfProducts: Number,
+  categories: CategoryDTO[]
 }

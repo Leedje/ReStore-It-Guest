@@ -5,11 +5,19 @@
         <h3 class="mb-0">Products</h3>
       </div>
       <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-end">
-          <button class="breadcrumb-item active, btn btn-info"><a (click)='navigateToCreateProducts()'>Add Product</a></button>
+        <ol (click)='navigateToCreateProducts()' class="breadcrumb float-sm-end">
+          <button class="breadcrumb-item active, btn btn-info"><a >Add Product</a></button>
         </ol>
       </div>
     </div>
+    <!--Confirm dialogue-->
+    <app-confirm-dialogue *ngIf="showConfirmDialogue"
+      [title]="'Delete Product'"
+      [message]="'Are you sure you want to delete this product?'"
+      [isVisible]="showConfirmDialogue"
+      (confirm)="handleDialogResponse($event)">
+    </app-confirm-dialogue>
+    <!--end Confirm dialogue-->
   </div>
 </div>
 <div class="app-content">
@@ -35,21 +43,32 @@
       <table class="table table-hover text-nowrap">
         <thead>
           <tr>
-            <th>Product ID</th>
             <th>Name</th>
             <th>Description</th>
+            <th>Size</th>
             <th>Price</th>
             <th>Quantity</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr (click)='navigateToProductDetails(product.id)' class="align-middle" *ngFor="let product of products">
-            <td>{{ product.id }}</td>
-            <td>{{ product.name }}</td>
+          <tr class="align-middle" *ngFor="let product of products">
+            <td (click)="navigateToProductDetails(product.id)">{{ product.name }}</td>
             <td>{{ product.description }}</td>
-            <td>{{ product.price }}</td>
+            <td> {{product.size}} </td>
+            <td product.price = parseFloat(product.price.toFixed(2))>{{ product.price | number:'1.2-2' }}</td>
             <td>{{ product.numberOfProducts }}</td>
+            <td>
+              <!-- Edit Icon -->
+              <button (click)="navigateToEditProduct(product.id)" title="Edit">
+                <i class="bi bi-pencil-square"></i>
+              </button>
+
+              <!-- Delete Icon -->
+              <button (click)="openConfirmDialogue(product.id)" title="Delete">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

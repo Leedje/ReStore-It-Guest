@@ -4,10 +4,11 @@ import { ProductService } from '../../../services/productService/product.service
 import { producerAccessed } from '@angular/core/primitives/signals';
 import { firstValueFrom } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
 })

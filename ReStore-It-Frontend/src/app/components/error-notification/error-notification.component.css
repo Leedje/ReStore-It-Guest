@@ -1,0 +1,25 @@
+.modal-content {
+  background-color: #343a40;
+  /* Matches AdminLTE's sidebar dark grey */
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.modal-title,
+.modal-body p {
+  color: white;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  opacity: 0.8;
+}

@@ -1,1 +1,16 @@
-<p>confirm-dialogue works!</p>
+<div class="modal-overlay" *ngIf="isVisible">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark">
+      <div class="modal-header position-relative">
+        <h5 class="modal-title text-white">{{ title }}</h5>
+      </div>
+      <div class="modal-body">
+        <p class="text-white">{{ message }}</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="onCancel()">No</button>
+        <button class="btn btn-info" (click)="onConfirm()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

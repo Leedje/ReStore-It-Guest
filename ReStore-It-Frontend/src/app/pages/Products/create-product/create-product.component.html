@@ -6,47 +6,76 @@
   </div>
   <!--end::Header-->
   <!--begin::Form-->
-  <form class="needs-validation" novalidate>
+  <form class="needs-validation" (ngSubmit)="CreateProduct(product)">
     <!--begin::Body-->
     <div class="card-body">
       <!--begin::Row-->
       <div class="row g-3">
+
         <!--begin::Col-->
         <div class="col-md-6">
-          <label for="validationCustom01" class="form-label">Name</label>
-          <input type="text" class="form-control" id="validationCustom01" required />
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="product.name" />
         </div>
         <!--end::Col-->
+
         <!--begin::Col-->
         <div class="col-md-6">
-          <label for="validationCustom02" class="form-label">Description</label>
-          <input type="text" class="form-control" id="validationCustom02" />
+          <label for="description" class="form-label">Description</label>
+          <input type="text" class="form-control" id="description" name="description"
+            [(ngModel)]="product.description" />
         </div>
         <!--end::Col-->
-      <!--begin::Col-->
-      <div class="col-md-6">
-        <label for="validationCustom04" class="form-label">Categories</label>
-        <select class="form-select" id="validationCustom04" required>
-          <option selected disabled value="">Choose...</option>
-          <option>...</option>
-        </select>
-        <div class="invalid-feedback">Please select a category.</div>
-      </div>
-      <!--end::Col-->
+
         <!--begin::Col-->
         <div class="col-md-6">
-          <label for="validationCustom03" class="form-label">Price</label>
-          <input type="number" min="1.00" class="form-control" id="validationCustom03" required />
+          <label for="categories" class="form-label">Categories</label>
+          <div class="dropdown-wrapper" >
+            <div class="pill-box-container mt-2" >
+              <span *ngFor="let category of product.categories" class="pill-box">
+                {{ category.name }}
+                <button type="button" class="close-pill" (click)="removeCategory(category)">×</button>
+              </span>
+            </div>
+            <div *ngIf="product.categories.length === 0" (click)="toggleDropdown()" class="selected-category bg-white" style="color: black">
+              {{ selectedCategory ? selectedCategory.name : 'Select categories...' }}
+            </div>
+
+            <select class="form-select" id="categories" name="categories" multiple
+              [ngClass]="{'hidden': !isDropdownOpen}" (change)="selectCategory($event)">
+              <option *ngFor="let category of categories" [ngValue]="category">{{ category.name }}</option>
+            </select>
+          </div>
+
+        </div>
+        <!--end::Col-->
+
+        <!--begin::Col-->
+        <div class="col-md-6">
+          <label for="size" class="form-label">Size</label>
+          <input type="text" class="form-control" id="size" name="size" required [(ngModel)]="product.size" />
+          <div class="invalid-feedback">Please enter a size.</div>
+        </div>
+        <!--end::Col-->
+
+        <!--begin::Col-->
+        <div class="col-md-6">
+          <label for="price" class="form-label">Price</label>
+          <input type="number" step="0.01" class="form-control" id="price" name="price" required
+            [(ngModel)]="product.price" />
           <div class="invalid-feedback">Please enter a price.</div>
         </div>
         <!--end::Col-->
+
         <!--begin::Col-->
         <div class="col-md-6">
-          <label for="validationCustom05" class="form-label">Number of products</label>
-          <input type="number" min="1" class="form-control" id="validationCustom05" required />
+          <label for="numberOfProducts" class="form-label">Number of products</label>
+          <input type="number" min="" class="form-control" id="numberOfProducts" name="numberOfProducts" required
+            [(ngModel)]="product.numberOfProducts" />
           <div class="invalid-feedback">Enter the number of available products.</div>
         </div>
         <!--end::Col-->
+
       </div>
       <!--end::Row-->
     </div>

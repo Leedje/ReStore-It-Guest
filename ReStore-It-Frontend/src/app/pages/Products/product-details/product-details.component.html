@@ -1,25 +1,58 @@
-<!-- /.card-header -->
-<div class="card-body table-responsive p-0">
-  <!-- Responsive Table -->
-  <table class="table table-hover text-nowrap">
-    <thead>
-      <tr>
-        <th>Product ID</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Quantity</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="align-middle">
-        <td>{{ product.id }}</td>
-        <td>{{ product.name }}</td>
-        <td>{{ product.description }}</td>
-        <td>{{ product.price }}</td>
-        <td>{{ product.numberOfProducts }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="card card-info card-outline mb-4 h-100">
+  <!-- Header -->
+  <div class="card-header">
+    <div class="card-title"><strong>{{ product.name }}</strong></div>
+  </div>
+
+  <!-- Card Body -->
+  <div class="card-body h-100 d-flex flex-column justify-content-between">
+    <div class="row h-100">
+
+      <!-- Product Image (Left Side - 50%) -->
+      <div class="col-md-6 text-center d-flex align-items-center">
+        <img [src]="'assets/default-image.jpg'" class="img-fluid rounded product-image"
+          alt="{{ product.name }}" />
+      </div>
+
+      <!-- Product Details (Right Side - 50%) -->
+      <div class="col-md-6 d-flex flex-column justify-content-between">
+        <div class="row h-100">
+
+          <div class="col-md-6">
+            <label class="form-label"><strong>Name</strong></label>
+            <div class="details-box">{{ product.name }}</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label"><strong>Size</strong></label>
+            <div class="details-box">{{ product.size }}</div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label"><strong>Price</strong></label>
+            <div class="details-box">{{ product.price | number:'1.2-2' }}</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label"><strong>Quantity</strong></label>
+            <div class="details-box">{{ product.numberOfProducts }}</div>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label"><strong>Description</strong></label>
+            <div class="details-box">{{ product.description }}</div>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label"><strong>Categories</strong></label>
+            <div class="pill-box-container mt-2">
+              <span *ngFor="let category of product.categories" class="pill-box">
+                {{ category.name }}
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
-<!-- /.card-body -->

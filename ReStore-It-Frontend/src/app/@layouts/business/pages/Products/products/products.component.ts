@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../../services/productService/product.service';
-import { ProductDTO } from '../../../dtos/productDTO';
+import { ProductService } from '../../../../../services/productService/product.service';
+import { ProductDTO } from '../../../../../dtos/productDTO';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ConfirmDialogueComponent } from '../../../components/confirm-dialogue/confirm-dialogue.component';
+import { ConfirmDialogueComponent } from '../../../../../components/confirm-dialogue/confirm-dialogue.component';
 
 @Component({
   selector: 'app-products',
@@ -25,34 +25,34 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  navigateToCreateProducts(){
-    this.router.navigate(['/products/create']);
+  navigateToCreateProducts() {
+    this.router.navigate(['/business/products/create']);
   }
 
-  navigateToProductDetails(productId: String){
-    this.router.navigate(["/products", productId]);
+  navigateToProductDetails(productId: String) {
+    this.router.navigate(["/business/products", productId]);
   }
 
-  navigateToEditProduct(productId: String){
-    this.router.navigate(["/products/edit", productId]);
+  navigateToEditProduct(productId: String) {
+    this.router.navigate(["/business/products/edit", productId]);
   }
 
-  openConfirmDialogue(productId: String){
+  openConfirmDialogue(productId: String) {
     this.showConfirmDialogue = true;
     this.productToDelete = productId;
   }
 
-  handleDialogResponse(response: boolean){
+  handleDialogResponse(response: boolean) {
     this.showConfirmDialogue = false;
 
-    if(response && this.productToDelete){
+    if (response && this.productToDelete) {
       this.DeleteProduct(this.productToDelete);
     }
   }
 
-  DeleteProduct(id: String){
+  DeleteProduct(id: String) {
     console.log("deleting product", id)
-    this.productService.DeleteProduct(id).subscribe( () => {
+    this.productService.DeleteProduct(id).subscribe(() => {
       this.products = this.products.filter(product => product.id != id)
     }, (error) => {
       console.error("An error occured while deleting the product: ", error)

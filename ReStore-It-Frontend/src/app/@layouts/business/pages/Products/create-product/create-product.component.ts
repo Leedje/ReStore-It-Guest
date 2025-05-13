@@ -1,11 +1,12 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { ProductService } from '../../../services/productService/product.service';
-import { ProductDTO } from '../../../dtos/productDTO';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../../../../../services/productService/product.service';
+import { ProductDTO } from '../../../../../dtos/productDTO';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CategoryService } from '../../../services/categoryService/category.service';
-import { CategoryDTO } from '../../../dtos/categoryDTO';
+import { CategoryService } from '../../../../../services/categoryService/category.service';
+import { CategoryDTO } from '../../../../../dtos/categoryDTO';
 import { Router } from '@angular/router';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-product',
@@ -22,12 +23,15 @@ export class CreateProductComponent implements OnInit {
 
   product: ProductDTO = {
     id: '',
+    image: '',
     name: '',
-    description:'-',
+    description: '-',
     size: '',
     price: 1.00,
     numberOfProducts: 1,
-    categories: []
+    categories: [] as CategoryDTO [],
+    seller: '',
+    user: { id: "9C96AA6A-1394-441D-85CF-673D6E233F71", name: "Mike", email:"mike@gmail.com", password:"mike123"} //populate this properly
   };
 
   categories: CategoryDTO[] = [];
@@ -42,10 +46,10 @@ export class CreateProductComponent implements OnInit {
   }
 
   CreateProduct(product: ProductDTO) {
-    this.productService.CreateProduct(product).subscribe((response) => {
-      product = response;
+    this.productService.CreateProduct(product).subscribe((response: HttpResponse<any>) => {
+      if(response.status == 200 || response.status == 201){
 
-      this.router.navigate(["/products"]);
+      this.router.navigate(["/business"]);}
       //if product successfully created, reroute and display success dialogue
     },
       (error) => {
@@ -55,7 +59,7 @@ export class CreateProductComponent implements OnInit {
     );
   }
 
-  toggleDropdown(): void{
+  toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen
   }
 

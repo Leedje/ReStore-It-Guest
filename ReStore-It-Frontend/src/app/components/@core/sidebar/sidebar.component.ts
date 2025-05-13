@@ -25,8 +25,12 @@ export class SidebarComponent implements OnInit {
   }
 
   //Navigation (Sidebar Routing)
-  navigateToProducts(){
-    this.router.navigate(['/products']);
+  navigateToManageProducts(): void{
+    this.router.navigate(['/business']);
+  }
+
+  navigateToHome(): void{
+    this.router.navigate(['']);
   }
 
   //End Navigation

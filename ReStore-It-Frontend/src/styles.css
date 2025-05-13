@@ -47,3 +47,19 @@ select.form-select {
   margin-top: 8px;
   /* Adds spacing when visible */
 }
+
+.app-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-content {
+  flex-grow: 1;
+  /* Pushes footer down */
+}

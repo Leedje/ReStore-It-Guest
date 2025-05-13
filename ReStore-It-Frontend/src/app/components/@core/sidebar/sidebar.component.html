@@ -19,11 +19,11 @@
     <nav class="mt-2">
       <!--begin::Sidebar Menu-->
       <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
-        <li class="nav-item menu-open">
-          <a href="#" class="nav-link active">
-            <i class="nav-icon bi bi-speedometer"></i>
+        <li (click)="navigateToHome()" class="nav-item menu-open">
+          <a class="nav-link active">
+            <i class="nav-icon bi bi-house"></i>
             <p>
-              Dashboard
+              Home
             </p>
           </a>
         </li>
@@ -50,7 +50,7 @@
             </li>
           </ul>
         </li>
-        <li (click)='navigateToProducts()' class="nav-item">
+        <li (click)='navigateToManageProducts()' class="nav-item">
           <a href="" class="nav-link">
             <i class="nav-icon bi bi-pencil-square"></i>
             <p>

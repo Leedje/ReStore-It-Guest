@@ -1,16 +1,17 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserDTO } from '../../dtos/userDTO';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  CreateUser(user: UserDTO): Observable<HttpResponse<any>>{
-    return this.http.post<HttpResponse<any>>('/business/user/create', user, { observe: 'response' });
+  ValidateLogin(email: string, password: string): Observable<boolean>{
+    return this.http.get<boolean>(`/business/login/validate`, {
+      params: { email, password }}
+)
   }
 }

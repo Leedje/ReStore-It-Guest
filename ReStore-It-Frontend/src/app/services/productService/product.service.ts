@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ProductDTO} from '../../dtos/productDTO';
 
@@ -9,24 +9,35 @@ import {ProductDTO} from '../../dtos/productDTO';
 export class ProductService {
   constructor(private http: HttpClient) { }
 
+  //Guest Mapping
   GetAllProducts(): Observable<any>{
-    return this.http.get(`/products`);
+    return this.http.get<HttpResponse<any>>(`/products`);
   }
 
-  CreateProduct(product: ProductDTO): Observable<any>{
-    return this.http.post(`/products/create`, product);
+ GetProductByID(id: String){
+   return this.http.get(`/products/${id}`);
   }
 
-  DeleteProduct(id: String): Observable<any>{
-    return this.http.delete(`/products/delete/${id}`);
+  //Business Mapping
+
+  GetProductsByUserID(userId: String){
+    this.http.get<HttpResponse<any>>(`/products/business/${userId}`);
   }
 
-  GetProductByID(id: String){
-    return this.http.get(`/products/${id}`);
+  GetProductByUserID(userId: String){
+    this.http.get<HttpResponse<any>>(`/products/business/`);
   }
 
-  EditProduct(product: ProductDTO){
-    return this.http.post(`/products/edit`, product);
+  CreateProduct(product: ProductDTO): Observable<HttpResponse<any>>{
+    return this.http.post<HttpResponse<any>>(`/products/business/create`, product);
+  }
+
+  DeleteProduct(id: String): Observable<HttpResponse<any>>{
+    return this.http.delete<HttpResponse<any>>(`/products/business/delete/${id}`);
+  }
+
+  EditProduct(product: ProductDTO): Observable<HttpResponse<any>>{
+    return this.http.post<HttpResponse<any>>(`/products/business/edit`, product);
   }
 
 }

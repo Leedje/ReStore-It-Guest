@@ -1,6 +1,6 @@
 import { Component, OnInit, Optional } from '@angular/core';
-import { ProductDTO } from '../../../dtos/productDTO';
-import { ProductService } from '../../../services/productService/product.service';
+import { ProductDTO } from '../../../../../dtos/productDTO';
+import { ProductService } from '../../../../../services/productService/product.service';
 import { producerAccessed } from '@angular/core/primitives/signals';
 import { firstValueFrom } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -13,13 +13,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent implements OnInit {
-  constructor(private productService: ProductService, private route: ActivatedRoute) {
+  constructor(private productService: ProductService, private urlRoute: ActivatedRoute) {
   }
 
   public product: Partial<ProductDTO> = {};
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this.urlRoute.snapshot.paramMap.get('id');
     if (id) {
       this.productService.GetProductByID(id).subscribe((response: Partial<ProductDTO>) => {
         this.product = response;

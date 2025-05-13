@@ -44,9 +44,8 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Description</th>
             <th>Size</th>
-            <th>Price</th>
+            <th>Price (€)</th>
             <th>Quantity</th>
             <th>Actions</th>
           </tr>
@@ -54,20 +53,19 @@
         <tbody>
           <tr class="align-middle" *ngFor="let product of products">
             <td (click)="navigateToProductDetails(product.id)">{{ product.name }}</td>
-            <td>{{ product.description }}</td>
             <td> {{product.size}} </td>
             <td product.price = parseFloat(product.price.toFixed(2))>{{ product.price | number:'1.2-2' }}</td>
             <td>{{ product.numberOfProducts }}</td>
             <td>
               <!-- Edit Icon -->
-              <button (click)="navigateToEditProduct(product.id)" title="Edit">
+              <span role="button" (click)="navigateToEditProduct(product.id)" title="Edit">
                 <i class="bi bi-pencil-square"></i>
-              </button>
+              </span>
 
               <!-- Delete Icon -->
-              <button (click)="openConfirmDialogue(product.id)" title="Delete">
-                <i class="bi bi-trash"></i>
-              </button>
+              <span role="button" title="Delete">
+                <i (click)="openConfirmDialogue(product.id)" class="bi bi-trash"></i>
+              </span>
             </td>
           </tr>
         </tbody>

@@ -1,0 +1,10 @@
+.app-sidebar {
+  position: fixed;
+  /* Keeps sidebar in place */
+  left: 0;
+  top: 0;
+  width: 250px;
+  /* Adjust width */
+  height: 100vh;
+  /* Full height */
+}

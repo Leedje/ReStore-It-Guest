@@ -12,6 +12,6 @@ export class HeaderComponent {
   constructor(private router: Router){}
 
   navigateToBusiness(): void {
-    this.router.navigate(['/business/login']);
+    window.location.href = "http://localhost:4300/business/login";
   }
 }

@@ -25,7 +25,7 @@ export class GuestProductPageComponent implements OnInit {
       });
     }
     else{
-      //display error notification
+      //display not found page
     }
   }
 

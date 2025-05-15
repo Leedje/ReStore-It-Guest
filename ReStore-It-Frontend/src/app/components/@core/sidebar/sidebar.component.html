@@ -20,6 +20,9 @@
       <!--begin::Sidebar Menu-->
       <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
         <li (click)="navigateToHome()" class="nav-item menu-open">
+          <!--Make this toggle, if you're on the business, go to home. If you signed in AND using restore it as a guest,
+          the button should now say Switch to Business-->
+
           <a class="nav-link active">
             <i class="nav-icon bi bi-house"></i>
             <p>
@@ -27,11 +30,23 @@
             </p>
           </a>
         </li>
+
+        <li class="nav-item">
+          <a href="" class="nav-link">
+
+            <strong>
+              <p>
+                Filter
+              </p>
+            </strong>
+          </a>
+        </li>
+
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon bi bi-box-seam-fill"></i>
             <p>
-              Orders
+              Categories
               <i class="nav-arrow bi bi-chevron-right"></i>
             </p>
           </a>
@@ -49,21 +64,6 @@
               </a>
             </li>
           </ul>
-        </li>
-        <li (click)='navigateToManageProducts()' class="nav-item">
-          <a href="" class="nav-link">
-            <i class="nav-icon bi bi-pencil-square"></i>
-            <p>
-              Manage Products
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <p>
-              Sign out
-            </p>
-          </a>
         </li>
 
       </ul>

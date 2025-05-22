@@ -1,4 +1,4 @@
-name: Guest Frontend Pipeline
+name: Frontend Build Pipeline
 
 on:
   push:

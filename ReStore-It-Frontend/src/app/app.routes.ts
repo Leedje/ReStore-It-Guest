@@ -11,7 +11,4 @@ export const routes: Routes = [
     ]
   }
 
-  //research what authentication tokens i can use in this routes.ts file
-  //like that I can easily do if(!businessUser) redirect to everything guest related
-
 ];

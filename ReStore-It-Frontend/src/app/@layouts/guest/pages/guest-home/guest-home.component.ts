@@ -19,8 +19,8 @@ export class GuestHomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productService.GetAllProducts().subscribe((response: ProductDTO[]) => {
-      this.products = response
+    this.productService.GetAllProducts().subscribe((response) => {
+      this.products = response.body
     },
     (error) => {
       //Display error notification

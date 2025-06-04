@@ -10,34 +10,12 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   //Guest Mapping
-  GetAllProducts(): Observable<any>{
-    return this.http.get<HttpResponse<any>>(`/products`);
+  GetAllProducts(): Observable<HttpResponse<any>>{
+    return this.http.get<HttpResponse<any>>(`/products`, {observe: 'response'});
   }
 
- GetProductByID(id: String){
-   return this.http.get(`/products/${id}`);
-  }
-
-  //Business Mapping
-
-  GetProductsByUserID(userId: String){
-    this.http.get<HttpResponse<any>>(`/products/business/${userId}`);
-  }
-
-  GetProductByUserID(userId: String){
-    this.http.get<HttpResponse<any>>(`/products/business/`);
-  }
-
-  CreateProduct(product: ProductDTO): Observable<HttpResponse<any>>{
-    return this.http.post<HttpResponse<any>>(`/products/business/create`, product);
-  }
-
-  DeleteProduct(id: String): Observable<HttpResponse<any>>{
-    return this.http.delete<HttpResponse<any>>(`/products/business/delete/${id}`);
-  }
-
-  EditProduct(product: ProductDTO): Observable<HttpResponse<any>>{
-    return this.http.post<HttpResponse<any>>(`/products/business/edit`, product);
+ GetProductByID(id: String): Observable<HttpResponse<any>>{
+   return this.http.get<HttpResponse<any>>(`/products/${id}`, {observe: 'response'});
   }
 
 }

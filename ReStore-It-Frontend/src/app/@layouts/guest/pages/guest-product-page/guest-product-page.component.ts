@@ -3,6 +3,9 @@ import { ProductDTO } from '../../../../dtos/productDTO';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../../../services/productService/product.service';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../../../services/cartService/cart.service';
+import { HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-guest-product-page',
@@ -12,16 +15,16 @@ import { CommonModule } from '@angular/common';
 })
 export class GuestProductPageComponent implements OnInit {
 
-  product: Partial<ProductDTO> = {};
+  product: ProductDTO = new ProductDTO();
 
-  constructor(private productService: ProductService, private router: Router, private urlRoute: ActivatedRoute) { }
+  constructor(private productService: ProductService, private router: Router, private urlRoute: ActivatedRoute, private cartService: CartService) { }
 
   ngOnInit(): void {
     const id = this.urlRoute.snapshot.paramMap.get('id');
 
     if (id) {
       this.productService.GetProductByID(id).subscribe((response) => {
-        this.product = response
+        this.product = response.body
       });
     }
     else{
@@ -29,13 +32,14 @@ export class GuestProductPageComponent implements OnInit {
     }
   }
 
-  addToCart(product: ProductDTO): void {
-
-    //Add to the cart
-
+  addToCart(): void {
+    console.log("adding product: ", this.product)
+    this.cartService.addToCart(this.product);
   }
 
-  buyNow(product: ProductDTO): void {
-
+  buyNow(): void {
+    this.addToCart();
+    console.log("adding product for immediate purchage: ", this.product)
+    this.router.navigate(['/order']);
   }
 }

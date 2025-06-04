@@ -19,6 +19,7 @@ export class CartService {
     this.saveCart();
   }
 
+  //BUG: removes ALL products if there's duplicates in the list. I need it to remove just the one singular product
   removeItem(selectedProduct: string): void{
     this.cart = this.cart.filter(product => product.id != selectedProduct);
     this.saveCart();

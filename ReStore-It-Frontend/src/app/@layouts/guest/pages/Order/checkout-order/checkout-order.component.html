@@ -1,0 +1,67 @@
+<div class="card card-info card-outline mb-4">
+  <div class="card-header">
+    <div class="card-title">Checkout</div>
+  </div>
+
+  <div class="card-body">
+    <app-error-notification
+    [title]="'An Error Occurred'"
+    [message]="'Unable to complete the order.'"
+    [isVisible]="displayError"></app-error-notification>
+  </div>
+
+  <form class="needs-validation" (ngSubmit)="submitOrder()">
+    <div class="card-body">
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <label for="firstName" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="firstName" name="firstName" required
+            [(ngModel)]="order.firstName" />
+          <div class="invalid-feedback">Please enter your first name.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="lastName" name="lastName" required [(ngModel)]="order.lastName" />
+          <div class="invalid-feedback">Please enter your last name.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" id="phone" name="phone" required [(ngModel)]="order.phone" />
+          <div class="invalid-feedback">Please enter a valid phone number.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required [(ngModel)]="order.email" />
+          <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+
+        <div class="col-md-12">
+          <label for="address" class="form-label">Shipping Address</label>
+          <input type="text" class="form-control" id="address" name="address" required [(ngModel)]="order.address" />
+          <div class="invalid-feedback">Please enter your shipping address.</div>
+        </div>
+
+        <!-- 🔹 Select Payment Method -->
+        <div class="col-md-12">
+          <label for="paymentMethod" class="form-label">Payment Method</label>
+          <select class="form-control" id="paymentMethod" name="paymentMethod" required [(ngModel)]="order.paymentMethod">
+            <option value="" disabled selected>Select Payment Option</option>
+            <option value="iDeal">📲 iDeal</option>
+            <option value="credit-card">💳 Credit Card</option>
+            <option value="paypal">🅿️ PayPal</option>
+            <option value="apple-pay">🍏 Apple Pay</option>
+            <option value="google-pay">🅶 Google Pay</option>
+          </select>
+          <div class="invalid-feedback">Please select a payment method.</div>  </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <button class="btn btn-info" type="submit">Complete Order</button>
+    </div>
+  </form>
+</div>

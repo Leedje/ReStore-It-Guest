@@ -33,7 +33,6 @@ export class GuestProductPageComponent implements OnInit {
 
     //Add to the cart
 
-    //display confirm modal... (continue shopping? or proceed to checkout)
   }
 
   buyNow(product: ProductDTO): void {

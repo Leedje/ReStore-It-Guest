@@ -1,6 +1,7 @@
 import { Component,  Input } from '@angular/core';
 import { ProductDTO } from '../../dtos/productDTO';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../services/cartService/cart.service';
 
 @Component({
   selector: 'app-product-item',
@@ -10,10 +11,11 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductItemComponent {
 
-  @Input() product: Partial<ProductDTO> = {}
-  constructor(){}
+  @Input() product: ProductDTO = new ProductDTO();
+
+  constructor(private cartService: CartService){}
 
   addToCart() {
-    //Add logic later
+    this.cartService.addToCart(this.product)
   }
 }

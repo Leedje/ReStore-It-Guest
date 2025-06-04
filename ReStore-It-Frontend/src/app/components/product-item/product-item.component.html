@@ -6,7 +6,7 @@
       <p class="product-price">€{{ product.price | number:'1.2-2' }}</p>
     </div>
 
-    <button class="add-to-cart btn btn-primary">
+    <button (click)="addToCart()" class="add-to-cart btn btn-primary">
       <i class="bi bi-cart"></i> Add to Cart
     </button>
 </div>

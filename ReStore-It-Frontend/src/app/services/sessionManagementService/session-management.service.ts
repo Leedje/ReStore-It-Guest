@@ -5,29 +5,30 @@ import { Injectable } from '@angular/core';
 })
 export class SessionManagementService {
 
-  private sessionKey = "ReStoreIt_UserRole";
+  //i need a dynamic key so that each guest customer can use somehow
+  private sessionKey = "ReStoreIt_CustomerKey";
+  //as soon as the guest "session" starts, a global cart needs to be initialized for the customer
 
   constructor() { }
 
-  //my session data should be the role: business
+  //configure Guest User Session
   setSession(sessionData: any): void{
-    localStorage.setItem(this.sessionKey, JSON.stringify(sessionData))
+    sessionStorage.setItem(this.sessionKey, JSON.stringify(sessionData))
   }
 
   getSession(): any | null {
-    const session = localStorage.getItem(this.sessionKey);
+    const session = sessionStorage.getItem(this.sessionKey);
     return session ? JSON.parse(session) : null;
   }
 
   endSession(): void {
-    localStorage.removeItem(this.sessionKey);
+    sessionStorage.removeItem(this.sessionKey);
   }
 
   isAuthenticated(): boolean {
     return !!this.getSession();
   }
 
-  // Optionally handle session expiry (add your logic)
   handleSessionExpiry(): void {
     // Example: Implement session expiration logic here
   }

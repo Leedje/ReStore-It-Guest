@@ -1,0 +1,28 @@
+<div class="card card-outline card-primary text-center mx-auto" style="max-width: 500px; padding: 20px; margin: 20px;">
+  <div class="card-header">
+    <h3>Your Order Has Been Placed!</h3>
+  </div>
+
+  <div class="card-body">
+    <p><strong>Order ID: </strong> {{ orderId }}</p>
+    <p class="text-muted">
+      Please save your Order ID to track your order in the future. <br>
+      <span class="text-gray">
+        If you don’t save it, there will be no way to retrieve it or communicate with sellers.
+      </span>
+    </p>
+
+    <div class="mt-3">
+      <button class="btn btn-info" (click)="navigateToHome()" style="transition: background-color 0.3s ease;">
+        Home
+      </button>
+
+      <button class="btn btn-info ms-2" (click)="copyToClipboard()" style="transition: background-color 0.3s ease;">
+        Copy to Clipboard
+      </button>
+    </div>
+
+    <p *ngIf="displayMessage" style="margin: 5px;" class="text-muted"><strong>OrderID copied to clipboard!</strong><p>
+
+  </div>
+</div>

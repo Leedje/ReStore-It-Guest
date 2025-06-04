@@ -1,0 +1,37 @@
+<div class="order-container">
+  <h3>Your Order</h3>
+
+  <p *ngIf="cartProducts.length === 0">Your shopping cart is empty.</p>
+
+  <table *ngIf="cartProducts.length" class="table product-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of cartProducts">
+        <td><img [src]="product.image" alt="{{product.name}}" class="product-image"></td>
+        <td>{{ product.name }}</td>
+        <td>€{{ product.price | number:'1.2-2' }}</td>
+        <td (click)="removeItem(product.id)">
+          <span role="button"  >
+            <i class="bi bi-trash"></i>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="cartProducts.length" class="cart-summary">
+    <p>Total: €{{ displayTotalPrice() | number:'1.2-2' }}</p>
+    <button (click)="proceedToCheckout()" class="btn btn-info checkout-button">
+      Proceed to Checkout
+    </button>
+  </div>
+</div>

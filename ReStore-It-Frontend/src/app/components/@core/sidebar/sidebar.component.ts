@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
+  imports:[RouterLink],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
 
 export class SidebarComponent implements OnInit {
-  private readonly router = inject(Router);
   private SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
   private Default = {
     scrollbarTheme: 'os-theme-light',
@@ -17,16 +16,15 @@ export class SidebarComponent implements OnInit {
     scrollbarClickScroll: true,
   };
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.initializeScrollbars();
     this.initializeTreeview();
   }
 
-  //Navigation (Sidebar Routing)
-  navigateToManageProducts(): void{
-    this.router.navigate(['/business']);
+  navigateToChat(): void{
+    this.router.navigate(['/chat']);
   }
 
   navigateToHome(): void{

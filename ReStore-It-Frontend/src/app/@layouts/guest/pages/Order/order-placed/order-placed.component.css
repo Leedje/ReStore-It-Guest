@@ -1,0 +1,5 @@
+.btn-info:hover {
+  background-color: grey !important;
+  font-weight: bold;
+  color: white !important;
+}

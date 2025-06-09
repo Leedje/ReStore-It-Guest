@@ -27,8 +27,4 @@ export class GuestHomeComponent implements OnInit {
     }
   );
   }
-
-  viewProduct(name: String, id: String): void {
-    this.router.navigate(['', name, id]);
-  }
 }

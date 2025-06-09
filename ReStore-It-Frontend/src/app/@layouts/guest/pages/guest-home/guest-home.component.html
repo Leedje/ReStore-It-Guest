@@ -2,7 +2,7 @@
 <div class="app-content">
   <div class="container-fluid">
     <div class="product-grid">
-      <app-product-item role="button" (click)="viewProduct(product.name, product.id)" *ngFor="let product of products" [product]="product" />
+      <app-product-item *ngFor="let product of products" [product]="product" />
     </div>
 
     <!-- Pagination -->

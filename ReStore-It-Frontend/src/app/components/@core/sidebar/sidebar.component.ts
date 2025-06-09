@@ -24,7 +24,7 @@ export class SidebarComponent implements OnInit {
   }
 
   navigateToChat(): void{
-    this.router.navigate(['/chat']);
+    this.router.navigate(['/chats']);
   }
 
   navigateToHome(): void{

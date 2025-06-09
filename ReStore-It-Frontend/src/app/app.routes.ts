@@ -11,10 +11,10 @@ import { OrderPlacedComponent } from './@layouts/guest/pages/Order/order-placed/
 export const routes: Routes = [
   {
     path: '', component: GuestLayoutComponent, children: [
+      { path: 'chats/:chatRoomId', component: ChatComponent},
+      { path: 'chats', component: ChatListComponent},
       { path: '', component: GuestHomeComponent, pathMatch: "prefix"},
       { path: ':name/:id', component: GuestProductPageComponent},
-      { path: 'chat', component: ChatListComponent},
-      { path: 'chat/:chatRoomId', component: ChatComponent},
       { path: 'order', component: ViewOrderComponent},
       { path: 'checkout', component: CheckoutOrderComponent},
       { path: 'order-placed',  component: OrderPlacedComponent}

@@ -1,4 +1,8 @@
 export class MessageDTO {
-  sender: string = 'User Placeholder';
+  id: string = '';
+  chatRoomId: string = '';
+  sender: string = '';
+  receiver: string = '';
   content: string = '';
+  timeSent: string = '';
 }

@@ -13,4 +13,9 @@ export class OrderService {
   SubmitOrder(order: OrderDTO): Observable<HttpResponse<any>>{
     return this.http.post<HttpResponse<any>>("/order/submit", order, {observe: 'response'});
   }
+
+  GetOrderByID(orderId: string): Observable<HttpResponse<any>> {
+    return this.http.get<HttpResponse<any>>(`/order/${orderId}`, { observe: 'response' });
+  }
+
 }

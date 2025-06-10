@@ -14,7 +14,7 @@ export class HeaderComponent {
   constructor(private router: Router, private cartService: CartService) { }
 
   navigateToBusiness(): void {
-    window.location.href = "http://localhost:4300/business/login";
+    window.open("http://localhost:4300/business/login", "_blank");
   }
 
   viewOrder() {

@@ -13,7 +13,7 @@ export const routes: Routes = [
     path: '', component: GuestLayoutComponent, children: [
       { path: 'chats/:chatRoomId', component: ChatComponent},
       { path: 'chats', component: ChatListComponent},
-      { path: '', component: GuestHomeComponent, pathMatch: "prefix"},
+      { path: '', component: GuestHomeComponent, pathMatch: "full"},
       { path: ':name/:id', component: GuestProductPageComponent},
       { path: 'order', component: ViewOrderComponent},
       { path: 'checkout', component: CheckoutOrderComponent},

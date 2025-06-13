@@ -9,7 +9,6 @@ import {ProductDTO} from '../../dtos/productDTO';
 export class ProductService {
   constructor(private http: HttpClient) { }
 
-  //Guest Mapping
   GetAllProducts(): Observable<HttpResponse<any>>{
     return this.http.get<HttpResponse<any>>(`/products`, {observe: 'response'});
   }

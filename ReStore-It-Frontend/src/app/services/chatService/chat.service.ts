@@ -11,7 +11,7 @@ export class ChatService {
   constructor(private http: HttpClient) { }
 
   GetCustomerChatsByEmailAndOrder(email: string, order: OrderDTO): Observable<HttpResponse<any>>{
-    return this.http.post<HttpResponse<any>>('/chat/guest', {email, order} , {observe: 'response'});
+    return this.http.post<HttpResponse<any>>('/chat/customer-chats', {email, order} , {observe: 'response'});
   }
 
   GetChatHistory(chatRoomId: string): Observable<HttpResponse<any>> {

@@ -11,11 +11,11 @@ export class OrderService {
   constructor(private http: HttpClient) { }
 
   SubmitOrder(order: OrderDTO): Observable<HttpResponse<any>>{
-    return this.http.post<HttpResponse<any>>("/order/submit", order, {observe: 'response'});
+    return this.http.post<HttpResponse<any>>("/orders/submit", order, {observe: 'response'});
   }
 
   GetOrderByID(orderId: string): Observable<HttpResponse<any>> {
-    return this.http.get<HttpResponse<any>>(`/order/${orderId}`, { observe: 'response' });
+    return this.http.get<HttpResponse<any>>(`/orders/${orderId}`, { observe: 'response' });
   }
 
 }

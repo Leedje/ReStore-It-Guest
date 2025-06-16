@@ -25,14 +25,14 @@ test('Submit order: test should verify that the order was made with confirmation
   await page.getByLabel('Payment Method').selectOption('credit-card');
 
 
-  const responsePromise = page.waitForResponse((response) =>
+  const backendResponse = page.waitForResponse((response) =>
     response.url().includes('http://localhost:8080/orders/submit') && response.status() === 201
   );
   await page.getByRole('button', { name: 'Complete Order' }).click();
 
   await expect(page.getByRole('heading')).toMatchAriaSnapshot(`- heading "Your Order Has Been Placed!" [level=3]`);
 
-  const response = await responsePromise;
+  const response = await backendResponse;
   const responseBody = await response.json();
 
   await expect(response.status()).toBe(201);

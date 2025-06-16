@@ -17,6 +17,10 @@ export class HeaderComponent {
     window.open("http://localhost:4300/business/login", "_blank");
   }
 
+  navigateToHome(): void {
+    this.router.navigate(['']);
+  }
+
   viewOrder() {
     this.router.navigate(['/order']);
   }

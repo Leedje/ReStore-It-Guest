@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let product of cartProducts">
-        <td><img [src]="product.image" alt="{{product.name}}" class="product-image"></td>
+        <td><img [src]="'Shoes.webp'" alt="{{product.name}}" class="product-image"></td>
         <td>{{ product.name }}</td>
         <td>€{{ product.price | number:'1.2-2' }}</td>
         <td (click)="removeItem(product.id)">
